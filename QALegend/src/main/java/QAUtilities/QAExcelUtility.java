@@ -17,7 +17,7 @@ public class QAExcelUtility
 		
 		public static String readStringData(int row ,int column,String shname) throws Exception
 		{
-			file = new FileInputStream("C:\\Users\\anups\\eclipse-workspace\\QALegend\\src\\main\\resources\\QALegend.xlsx");
+			file = new FileInputStream("C:\\Users\\anups\\git\\QALegend\\QALegend\\src\\main\\resources\\QALegendnew.xlsx");
 			book =new XSSFWorkbook(file);
 			sheet =book.getSheet(shname);
 			Row r = sheet.getRow(row);
@@ -26,7 +26,7 @@ public class QAExcelUtility
 		}
 		public static String readIntegerData(int row , int column, String shname) throws Exception
 		{
-			file = new FileInputStream("C:\\Users\\anups\\eclipse-workspace\\QALegend\\src\\main\\resources\\QALegend.xlsx");
+			file = new FileInputStream("C:\\Users\\anups\\git\\QALegend\\QALegend\\src\\main\\resources\\QALegendnew.xlsx");
 			book =new XSSFWorkbook(file);
 			sheet =book.getSheet(shname);
 			Row r = sheet.getRow(row);

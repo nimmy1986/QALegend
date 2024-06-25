@@ -40,7 +40,7 @@ public class QABase
 	@BeforeMethod
 	public void setup()
 	{
-		initialisebrowserlaunch("Edge");
+		initialisebrowserlaunch("Chrome");
 	}
 	@AfterMethod
 	public void closeBrower(ITestResult result) throws IOException

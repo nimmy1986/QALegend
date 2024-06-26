@@ -34,6 +34,9 @@ public class Homepage
 	@FindBy(xpath="//a[@class='btn btn-default btn-flat'and@href='https://qalegend.com/billing/public/user/profile']")
 	WebElement profilebutton;
 	
+	@FindBy(xpath="//span[text()='User Management']")
+	WebElement user_management;
+	
 	
 	public void clickonendtour()
 	{
@@ -61,5 +64,12 @@ public class Homepage
 	{
 		return Userprofilebutton.getText();
 	}
+
+	public userManagementpage clickUserManagement() 
+	{
+		user_management.click();
+		return new userManagementpage(driver);
+	}
+
 	
 }

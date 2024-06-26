@@ -19,9 +19,11 @@ public class LoginPageTest extends QABase
 		
 		String username=QAExcelUtility.readStringData(0, 0, "LoginPage");
 		String password=QAExcelUtility.readIntegerData(1, 0, "LoginPage");
+		
 		LoginPage login=new LoginPage(driver);
 		login.enterusername(username);
 		login.enterpassword(password);
+		
 		Homepage home=login.clickonloginbutton();
 		home.clickonendtour();
 		String welcometext=home.getwelcometext();

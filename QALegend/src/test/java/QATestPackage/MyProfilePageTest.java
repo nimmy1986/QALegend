@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import CONSTANTS.Constants;
 import Page_Object.Homepage;
 import Page_Object.LoginPage;
 import Page_Object.MyProfilePage;
@@ -24,8 +25,8 @@ public class MyProfilePageTest extends QABase
 		driver.get("https://qalegend.com/billing/public/home");
 		
 		LoginPage login=new LoginPage(driver);
-		String un=QAExcelUtility.readStringData(0, 0, "LoginPage");
-		String pwd=QAExcelUtility.readIntegerData(1, 0, "LoginPage");
+		String un=QAExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
+		String pwd=QAExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		login.enterusername(un);
 		login.enterpassword(pwd);
 		login.clickonloginbutton();

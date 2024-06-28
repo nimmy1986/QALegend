@@ -3,7 +3,7 @@ package CONSTANTS;
 public class Messages 
 {
 
-	public static final String LOGIN_FAILED ="Invalid user";
+	public static final String LOGIN_FAILED ="Login Failed!!!";
 	public static final String LOGIN_SUCCESS = "Login is successful";
 	public static final String HOME_TITLEMISMATCH ="INVALID TITLE";
 	public static final String HOME_PROFILEMISMATCH="Profile updation failed";

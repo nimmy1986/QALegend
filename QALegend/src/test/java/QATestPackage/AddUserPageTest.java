@@ -67,8 +67,7 @@ public class AddUserPageTest extends QABase
 		userspage.enter_email_insearchfield(email);
 		userspage.waitforusers();
 		String found_email= userspage.FoundUser();
-		Assert.assertEquals(email, found_email,"invalid user");
-			
+		Assert.assertEquals(email, found_email,"invalid user");		
 	}
 	
 	@Test

@@ -40,14 +40,12 @@ public class MyProfilePageTest extends QABase
 		
 		MyProfilePage myprofile=new MyProfilePage(driver);
 		String firstnametext=myprofile.getfirstnametext();
-		//System.out.println(firstnametext);
 		myprofile.clearlastnamefield();
 		String editlastname=QARandomDataUtility.getlastname();
 		myprofile.editlastnamefield(editlastname);
 		myprofile.clickon_updatebutton();		
 		String expectedtext=firstnametext+" "+editlastname;
 		String actualtext=homepage.getuserprofiletext();
-		//System.out.println(actualtext);
 		Assert.assertEquals(actualtext, expectedtext, "Profile update unsuccessful!!!!!");
 	}
 }

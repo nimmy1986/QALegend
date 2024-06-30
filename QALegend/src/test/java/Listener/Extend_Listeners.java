@@ -10,7 +10,7 @@ import com.aventstack.extentreports.ExtentTest;
 import Extent_Report.ExtentManager;
 import QA_Automation_Core.QABase;
 
-public class Extent_Listeners extends QABase implements ITestListener
+public class Extend_Listeners extends QABase implements ITestListener
 {
 	private static final ExtentReports extent = ExtentManager.createInstance();
 	private static final ThreadLocal <ExtentTest> test= new ThreadLocal();

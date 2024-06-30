@@ -46,7 +46,7 @@ public class Homepagetest extends QABase
 		String password=QAExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 
 		LoginPage login=new LoginPage(driver);
-		login.enterpassword(username);
+		login.enterusername(username);
 		login.enterpassword(password);
 		Homepage home=new Homepage(driver);
 		home=login.clickonloginbutton();

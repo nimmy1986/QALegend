@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Functional Suite">
+	<listeners>
+		<listener class-name="Listener.Extend_Listeners"/>
+		<listener class-name="Listener.AnnotationTransformer"/>
+	</listeners>
+  <test name="Report Test">
+	  <parameter name="Browser" value="Chrome"/>
+    <classes>
+      <class name="QATestPackage.LoginPageTest"/>
+    </classes>
+  </test> <!-- Functional Test -->
+</suite> <!-- Functional Suite -->

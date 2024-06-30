@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Functional Suite" parallel="tests" thread-count="3" >  
+	<test name="userManagementpagetest">
+	  <parameter name="Browser" value="Chrome"/>
+    <classes>
+      <class name="QATestPackage.userManagementpagetest">
+		  <methods>
+			  <include name="verifyRolesOptionIsEnabled"></include>
+			  <exclude name="verifyUsersOptionIsEnabled"></exclude>
+		  </methods>
+	  </class>
+	</classes>
+  </test>
+  <test name="Homepagetest">
+	  <parameter name="Browser" value="Edge"/>
+    <classes>
+      <class name="QATestPackage.Homepagetest">
+		  <methods>
+			  <include name="verifyuserlogindate"></include>
+			  <exclude name="homepagetitle"></exclude>
+		  </methods>
+	  </class>
+	</classes>
+  </test>
+    <test name="AddUserPageTest">
+	  <parameter name="Browser" value="Firefox"/>
+    <classes>
+      <class name="QATestPackage.AddUserPageTest">
+		  <methods>
+			  <include name="verifyadduser"></include>
+			  <exclude name="verifynewlyaddeduser"></exclude>
+		  </methods>
+	  </class>
+	</classes>
+  </test>
+</suite> <!-- Functional Suite -->

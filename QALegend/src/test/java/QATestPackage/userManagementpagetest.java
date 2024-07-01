@@ -18,7 +18,6 @@ import Page_Object.userManagementpage;
 import QAUtilities.QAExcelUtility;
 import QAUtilities.QARandomDataUtility;
 import QA_Automation_Core.QABase;
-import Utilities.ExcelUtility;
 
 public class userManagementpagetest extends QABase
 {

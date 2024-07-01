@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Functional Suite">
   <listeners>
-		<listener class-name="listener.AnnotationTransformer"></listener>
+		<listener class-name="Listener.AnnotationTransformer"></listener>
 	</listeners>
 	<test name="Test">
 		<parameter name="browser" value="Chrome"></parameter>

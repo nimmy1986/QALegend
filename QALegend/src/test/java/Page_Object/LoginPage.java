@@ -30,7 +30,6 @@ public class LoginPage
 	
 	public void enterusername(String username)
 	{
-		Wait_Utility.waitForElementToBeVisible(driver, username_field);
 		username_field.sendKeys(username);
 	}
 	

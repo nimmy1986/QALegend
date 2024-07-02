@@ -26,6 +26,9 @@ public class UsersPage
 	
 	@FindBy(xpath="//i[@class='fa fa-plus']")
 	WebElement Addbutton;
+	
+	@FindBy(className = "toast-success")
+	WebElement success_message;
 
 	public void enter_email_insearchfield(String searched_user) 
 	{
@@ -42,5 +45,11 @@ public class UsersPage
 	{
 		Addbutton.click();
 		return new AddUserPage(driver);
+	}
+	public String waitForTextToBeInvisible() 
+	{
+		String msg_text = success_message.getText();
+		Wait_Utility.waitForElementToBeInvisible(driver, success_message);
+		return msg_text;
 	}
 }

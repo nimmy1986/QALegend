@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import qaconstants.Constants;
+import qaconstants.Messages;
 import Page_Object.ResetPasswordPage;
 import QAUtilities.ExcelUtility;
 import QA_Automation_Core.QABase;
@@ -15,7 +16,6 @@ public class ResetPasswordPageTest extends QABase
 	@Test
 	public void verifyerrormessagewithinvalidemailid() throws Exception
 	{
-		driver.get("https://qalegend.com/billing/public/login");
 		String invalidemailidfromexcel=ExcelUtility.readStringData(0, 0, Constants.RESETPAGE);
 
 		ResetPasswordPage Reset=new ResetPasswordPage(driver);
@@ -25,13 +25,12 @@ public class ResetPasswordPageTest extends QABase
 		String errormessagetext=Reset.geterrormessage();
 		String expectederrormessage=ExcelUtility.readStringData(1, 0, Constants.RESETPAGE);
 		
-		Assert.assertEquals(errormessagetext, expectederrormessage, "Mismatch in error message text");
+		Assert.assertEquals(errormessagetext, expectederrormessage, Messages.MESSAGE_MISMATCH);
 	}
 	
 	@Test
 	public void verifytextmessagewithvalidemailid() throws Exception
 	{
-		driver.get("https://qalegend.com/billing/public/login");
 		String validemailidfromexcel=ExcelUtility.readStringData(2, 0, Constants.RESETPAGE);
 
 		ResetPasswordPage Reset=new ResetPasswordPage(driver);
@@ -41,7 +40,7 @@ public class ResetPasswordPageTest extends QABase
 		String actualsuccessmessage=Reset.getsuccessmessage();
 		String expectedsuccessmessage=ExcelUtility.readStringData(3, 0, Constants.RESETPAGE);
 		
-		Assert.assertEquals(actualsuccessmessage, expectedsuccessmessage,"Mismatch in success message");
+		Assert.assertEquals(actualsuccessmessage, expectedsuccessmessage,Messages.MESSAGE_MISMATCH);
 		
 	}
 	

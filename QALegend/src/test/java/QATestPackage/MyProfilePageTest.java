@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import qaconstants.Constants;
+import qaconstants.Messages;
 import Page_Object.Homepage;
 import Page_Object.LoginPage;
 import Page_Object.MyProfilePage;
@@ -21,7 +22,6 @@ public class MyProfilePageTest extends QABase
 	@Test
 	public void verifyProfileEdit() throws Exception
 	{
-		driver.get("https://qalegend.com/billing/public/home");
 		
 		LoginPage login=new LoginPage(driver);
 		String un=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
@@ -45,6 +45,6 @@ public class MyProfilePageTest extends QABase
 		myprofile.clickon_updatebutton();		
 		String expectedtext=firstnametext+" "+editlastname;
 		String actualtext=homepage.getuserprofiletext();
-		Assert.assertEquals(actualtext, expectedtext, "Profile update unsuccessful!!!!!");
+		Assert.assertEquals(actualtext, expectedtext, Messages.HOME_PROFILEMISMATCH);
 	}
 }

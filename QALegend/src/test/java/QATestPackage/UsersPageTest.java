@@ -11,6 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import qaconstants.Constants;
+import qaconstants.Messages;
 import Page_Object.Homepage;
 import Page_Object.LoginPage;
 import Page_Object.UsersPage;
@@ -23,7 +24,6 @@ public class UsersPageTest extends QABase
 	@Test
 	public void verifySearchUser() throws Exception
 	{
-		driver.get("https://qalegend.com/billing/public/home");
 		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		String searched_user=ExcelUtility.readStringData(0, 0, Constants.USERSPAGE);
@@ -42,7 +42,7 @@ public class UsersPageTest extends QABase
 		userspage.enter_email_insearchfield(searched_user);
 		userspage.waitforusers();
 		String found_user= userspage.FoundUser();
-		Assert.assertEquals(searched_user, found_user,"invalid user");
+		Assert.assertEquals(searched_user, found_user, Messages.INVALID_USER);
 		
 	}
 }

@@ -64,6 +64,7 @@ public class QABase
 		{
 			throw new RuntimeException();
 		}
+		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
 	}
 	

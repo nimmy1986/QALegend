@@ -12,15 +12,15 @@ import Page_Object.UsersPage;
 import Page_Object.userManagementpage;
 import QAUtilities.ExcelUtility;
 import QAUtilities.RandomDataUtility;
-import QAUtilities.Wait_Utility;
 import QA_Automation_Core.QABase;
 
 public class AddUserPageTest extends QABase
 {
 	@Test
-	public void verifyadduser() throws Exception
+	public void verifyadduser()
 	{
-		driver.get("https://qalegend.com/billing/public/home");
+		try
+		{
 		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		
@@ -62,15 +62,20 @@ public class AddUserPageTest extends QABase
 		userspage.enter_email_insearchfield(email);
 		userspage.waitforusers();
 		String found_email= userspage.FoundUser();
-		Assert.assertEquals(email, found_email,"invalid user");		
+		Assert.assertEquals(email, found_email,Messages.USER_NOT_FOUND);		
+		}
+		catch(Exception e)
+		{
+			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
+		}
 	
 	}
 	
 	@Test
 	public void verifynewlyaddeduser() throws Exception
 	{
-
-		driver.get("https://qalegend.com/billing/public/home");
+		try
+		{
 		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		
@@ -93,9 +98,9 @@ public class AddUserPageTest extends QABase
 		String firstname=RandomDataUtility.getusername();
 		String lastname=RandomDataUtility.getlastname();
 		String prefix=RandomDataUtility.getprefix();
-		String email=firstname+"."+lastname+"@gmail.com";
+		String email=firstname+"."+lastname+ Constants.ID;
 		String username1=firstname+lastname;
-		String password1=firstname+"@911";
+		String password1=firstname+ Constants.NUMBER;
 		String commission=RandomDataUtility.getPercent();
 		
 		adduser.enterprefix(prefix);
@@ -106,10 +111,9 @@ public class AddUserPageTest extends QABase
 		adduser.enterusername(username1);
 		adduser.enterpassword(password1);
 		adduser.confirmpassword(password1);
+		adduser.commisionfield(commission);
 		adduser.clickon_savebutton();
-		adduser.waitforusers();
-		driver.navigate().to("https://qalegend.com/billing/public/home");
-		//Homepage home1=new Homepage(driver);
+		userspage.waitForTextToBeInvisible();
 		home.clickon_userprofilebutton();
 		home.clickon_signout();
 		
@@ -120,6 +124,10 @@ public class AddUserPageTest extends QABase
 		String expectedusername=firstname+" "+lastname;
 		System.out.println(expectedusername);
 		Assert.assertEquals(actualusername, expectedusername, Messages.LOGIN_FAILED);
-		
+		}
+		catch(Exception e)
+		{
+			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
+		}
 	}
 }

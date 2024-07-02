@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import qaconstants.Constants;
+import qaconstants.Messages;
 import Page_Object.Homepage;
 import Page_Object.LoginPage;
 import QAUtilities.ExcelUtility;
@@ -16,8 +17,7 @@ public class LoginPageTest extends QABase
 	@Test
 	public void verifyuserloginwithvalidcredentials() throws Exception
 	{
-		driver.get("https://qalegend.com/billing/public/login");
-		
+	
 		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		
@@ -32,13 +32,13 @@ public class LoginPageTest extends QABase
 		
 		String expectedwelcometext=ExcelUtility.readStringData(2, 0, Constants.LOGINPAGE);
 		System.out.println(expectedwelcometext);
-		Assert.assertEquals(welcometext, expectedwelcometext, "User is not logged in");
+		Assert.assertEquals(welcometext, expectedwelcometext, Messages.LOGIN_FAILED);
 				
 	}
+	
 	@Test(dataProvider="Invalidusernameorpassword", dataProviderClass=qadataproviders.class)
 	public void verifyerrormessagewhileuserloginwithinvalidcredentials(String usrnm,String pwd) throws Exception
 	{
-		driver.get("https://qalegend.com/billing/public/login");
 		LoginPage login=new LoginPage(driver);
 		login.enterusername(usrnm);
 		login.enterpassword(pwd);
@@ -46,6 +46,6 @@ public class LoginPageTest extends QABase
 		String actualerrormessage=login.geterrormessage();
 		String expectederrormessage=ExcelUtility.readStringData(3, 0, Constants.LOGINPAGE);
 		
-		Assert.assertEquals(actualerrormessage, expectederrormessage, "Error message is not same");
+		Assert.assertEquals(actualerrormessage, expectederrormessage, Messages.MESSAGE_MISMATCH);
 	}
 }

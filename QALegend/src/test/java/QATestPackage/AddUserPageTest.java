@@ -1,24 +1,18 @@
 package QATestPackage;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import CONSTANTS.Constants;
-import CONSTANTS.Messages;
+import qaconstants.Constants;
+import qaconstants.Messages;
 import Page_Object.AddUserPage;
 import Page_Object.Homepage;
 import Page_Object.LoginPage;
 import Page_Object.UsersPage;
 import Page_Object.userManagementpage;
-import QAUtilities.QAExcelUtility;
-import QAUtilities.QARandomDataUtility;
+import QAUtilities.ExcelUtility;
+import QAUtilities.RandomDataUtility;
+import QAUtilities.Wait_Utility;
 import QA_Automation_Core.QABase;
 
 public class AddUserPageTest extends QABase
@@ -27,8 +21,8 @@ public class AddUserPageTest extends QABase
 	public void verifyadduser() throws Exception
 	{
 		driver.get("https://qalegend.com/billing/public/home");
-		String username=QAExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
-		String password=QAExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
+		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
+		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		
 		LoginPage login=new LoginPage(driver);
 		login.enterusername(username);
@@ -46,13 +40,13 @@ public class AddUserPageTest extends QABase
 		
 		AddUserPage adduser=new AddUserPage(driver);
 		
-		String firstname=QARandomDataUtility.getusername();
-		String lastname=QARandomDataUtility.getlastname();
-		String prefix=QARandomDataUtility.getprefix();
-		String email=firstname+"."+lastname+"@gmail.com";
+		String firstname=RandomDataUtility.getusername();
+		String lastname=RandomDataUtility.getlastname();
+		String prefix=RandomDataUtility.getprefix();
+		String email=firstname+"."+lastname+Constants.ID;
 		String username1=firstname+lastname;
-		String password1=firstname+"@911";
-		String commission=QARandomDataUtility.getPercent();
+		String password1=firstname+Constants.NUMBER;
+		String commission=RandomDataUtility.getPercent();
 		
 		adduser.enterprefix(prefix);
 		adduser.enterfirstname(firstname);
@@ -62,12 +56,14 @@ public class AddUserPageTest extends QABase
 		adduser.enterusername(username1);
 		adduser.enterpassword(password1);
 		adduser.confirmpassword(password1);
+		adduser.commisionfield(commission);
 		adduser.clickon_savebutton();
 		
 		userspage.enter_email_insearchfield(email);
 		userspage.waitforusers();
 		String found_email= userspage.FoundUser();
 		Assert.assertEquals(email, found_email,"invalid user");		
+	
 	}
 	
 	@Test
@@ -75,8 +71,8 @@ public class AddUserPageTest extends QABase
 	{
 
 		driver.get("https://qalegend.com/billing/public/home");
-		String username=QAExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
-		String password=QAExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
+		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
+		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		
 		LoginPage login=new LoginPage(driver);
 		login.enterusername(username);
@@ -94,13 +90,13 @@ public class AddUserPageTest extends QABase
 		
 		AddUserPage adduser=new AddUserPage(driver);
 		
-		String firstname=QARandomDataUtility.getusername();
-		String lastname=QARandomDataUtility.getlastname();
-		String prefix=QARandomDataUtility.getprefix();
+		String firstname=RandomDataUtility.getusername();
+		String lastname=RandomDataUtility.getlastname();
+		String prefix=RandomDataUtility.getprefix();
 		String email=firstname+"."+lastname+"@gmail.com";
 		String username1=firstname+lastname;
 		String password1=firstname+"@911";
-		String commission=QARandomDataUtility.getPercent();
+		String commission=RandomDataUtility.getPercent();
 		
 		adduser.enterprefix(prefix);
 		adduser.enterfirstname(firstname);
@@ -124,5 +120,6 @@ public class AddUserPageTest extends QABase
 		String expectedusername=firstname+" "+lastname;
 		System.out.println(expectedusername);
 		Assert.assertEquals(actualusername, expectedusername, Messages.LOGIN_FAILED);
+		
 	}
 }

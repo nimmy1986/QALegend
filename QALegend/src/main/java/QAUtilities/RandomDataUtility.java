@@ -3,7 +3,7 @@ package QAUtilities;
 import com.github.javafaker.Faker;
 import com.github.javafaker.Name;
 
-public class QARandomDataUtility 
+public class RandomDataUtility 
 {
 	static Faker qafaker;
 	

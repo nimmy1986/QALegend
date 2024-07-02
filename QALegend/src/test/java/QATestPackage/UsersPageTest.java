@@ -10,14 +10,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import CONSTANTS.Constants;
+import qaconstants.Constants;
 import Page_Object.Homepage;
 import Page_Object.LoginPage;
 import Page_Object.UsersPage;
 import Page_Object.userManagementpage;
-import QAUtilities.QAExcelUtility;
-import QAUtilities.QARandomDataUtility;
-import QAUtilities.Wait_Utility;
+import QAUtilities.ExcelUtility;
 import QA_Automation_Core.QABase;
 
 public class UsersPageTest extends QABase
@@ -26,9 +24,9 @@ public class UsersPageTest extends QABase
 	public void verifySearchUser() throws Exception
 	{
 		driver.get("https://qalegend.com/billing/public/home");
-		String username=QAExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
-		String password=QAExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
-		String searched_user=QAExcelUtility.readStringData(0, 0, Constants.USERSPAGE);
+		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
+		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
+		String searched_user=ExcelUtility.readStringData(0, 0, Constants.USERSPAGE);
 		
         LoginPage login=new LoginPage(driver);
         login.enterusername(username);

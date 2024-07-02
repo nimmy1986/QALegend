@@ -10,13 +10,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import CONSTANTS.Constants;
+import qaconstants.Constants;
 import Page_Object.Homepage;
 import Page_Object.LoginPage;
 import Page_Object.UsersPage;
 import Page_Object.userManagementpage;
-import QAUtilities.QAExcelUtility;
-import QAUtilities.QARandomDataUtility;
+import QAUtilities.ExcelUtility;
+import QAUtilities.RandomDataUtility;
 import QA_Automation_Core.QABase;
 
 public class userManagementpagetest extends QABase
@@ -25,8 +25,8 @@ public class userManagementpagetest extends QABase
 	public void verifyRolesOptionIsEnabled() throws Exception
 	{
 		driver.get("https://qalegend.com/billing/public/login");
-		String username=QAExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
-		String password=QAExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
+		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
+		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		
 		LoginPage login=new LoginPage(driver);
 		login.enterusername(username);
@@ -43,8 +43,8 @@ public class userManagementpagetest extends QABase
 	public void verifyUsersOptionIsEnabled() throws Exception
 	{
 		driver.get("https://qalegend.com/billing/public/login");
-		String username=QAExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
-		String password=QAExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
+		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
+		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		
 		LoginPage login=new LoginPage(driver);
 		login.enterusername(username);

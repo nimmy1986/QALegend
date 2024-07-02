@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import QAUtilities.Wait_Utility;
+
 public class LoginPage
 {
 	WebDriver driver;
@@ -28,6 +30,7 @@ public class LoginPage
 	
 	public void enterusername(String username)
 	{
+		Wait_Utility.waitForElementToBeVisible(driver, username_field);
 		username_field.sendKeys(username);
 	}
 	

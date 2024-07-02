@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import CONSTANTS.Constants;
+import qaconstants.Constants;
 import Page_Object.ResetPasswordPage;
-import QAUtilities.QAExcelUtility;
+import QAUtilities.ExcelUtility;
 import QA_Automation_Core.QABase;
 
 public class ResetPasswordPageTest extends QABase
@@ -16,14 +16,14 @@ public class ResetPasswordPageTest extends QABase
 	public void verifyerrormessagewithinvalidemailid() throws Exception
 	{
 		driver.get("https://qalegend.com/billing/public/login");
-		String invalidemailidfromexcel=QAExcelUtility.readStringData(0, 0, Constants.RESETPAGE);
+		String invalidemailidfromexcel=ExcelUtility.readStringData(0, 0, Constants.RESETPAGE);
 
 		ResetPasswordPage Reset=new ResetPasswordPage(driver);
 		Reset.clickonforgotpasswordlink();
 		Reset.enteremailid(invalidemailidfromexcel);
 		Reset.clickonpasswordresetbutton();
 		String errormessagetext=Reset.geterrormessage();
-		String expectederrormessage=QAExcelUtility.readStringData(1, 0, Constants.RESETPAGE);
+		String expectederrormessage=ExcelUtility.readStringData(1, 0, Constants.RESETPAGE);
 		
 		Assert.assertEquals(errormessagetext, expectederrormessage, "Mismatch in error message text");
 	}
@@ -32,14 +32,14 @@ public class ResetPasswordPageTest extends QABase
 	public void verifytextmessagewithvalidemailid() throws Exception
 	{
 		driver.get("https://qalegend.com/billing/public/login");
-		String validemailidfromexcel=QAExcelUtility.readStringData(2, 0, Constants.RESETPAGE);
+		String validemailidfromexcel=ExcelUtility.readStringData(2, 0, Constants.RESETPAGE);
 
 		ResetPasswordPage Reset=new ResetPasswordPage(driver);
 		Reset.clickonforgotpasswordlink();
 		Reset.enteremailid(validemailidfromexcel);
 		Reset.clickonpasswordresetbutton();
 		String actualsuccessmessage=Reset.getsuccessmessage();
-		String expectedsuccessmessage=QAExcelUtility.readStringData(3, 0, Constants.RESETPAGE);
+		String expectedsuccessmessage=ExcelUtility.readStringData(3, 0, Constants.RESETPAGE);
 		
 		Assert.assertEquals(actualsuccessmessage, expectedsuccessmessage,"Mismatch in success message");
 		

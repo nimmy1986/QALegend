@@ -9,7 +9,7 @@
 		</run>
 	</groups>
   <test  name="All TestCases">
-	<parameter name="browser" value="Chrome"/>
+	<parameter name="browser" value="Edge"/>
     <classes>
        <class name="QATestPackage.LoginPageTest"/>
       	<class name="QATestPackage.ResetPasswordPageTest"/>

@@ -1,4 +1,4 @@
-package QAUtilities;
+package utilities;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;

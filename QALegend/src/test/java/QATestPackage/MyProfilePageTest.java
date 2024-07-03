@@ -10,11 +10,11 @@ import org.testng.annotations.Test;
 
 import qaconstants.Constants;
 import qaconstants.Messages;
+import utilities.ExcelUtility;
+import utilities.RandomDataUtility;
 import Page_Object.Homepage;
 import Page_Object.LoginPage;
 import Page_Object.MyProfilePage;
-import QAUtilities.ExcelUtility;
-import QAUtilities.RandomDataUtility;
 import QA_Automation_Core.QABase;
 
 public class MyProfilePageTest extends QABase

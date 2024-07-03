@@ -5,13 +5,13 @@ import org.testng.annotations.Test;
 
 import qaconstants.Constants;
 import qaconstants.Messages;
+import utilities.ExcelUtility;
+import utilities.RandomDataUtility;
 import Page_Object.AddUserPage;
 import Page_Object.Homepage;
 import Page_Object.LoginPage;
 import Page_Object.UsersPage;
 import Page_Object.userManagementpage;
-import QAUtilities.ExcelUtility;
-import QAUtilities.RandomDataUtility;
 import QA_Automation_Core.QABase;
 
 public class AddUserPageTest extends QABase

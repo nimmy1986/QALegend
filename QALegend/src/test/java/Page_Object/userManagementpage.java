@@ -3,8 +3,8 @@ package Page_Object;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import QAUtilities.Wait_Utility;
-import QAUtilities.WebElement_Utility;
+import utilities.Wait_Utility;
+import utilities.WebElement_Utility;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

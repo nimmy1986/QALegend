@@ -18,8 +18,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
-import QAUtilities.Wait_Utility;
 import qaconstants.Constants;
+import utilities.Wait_Utility;
 
 public class QABase 
 {

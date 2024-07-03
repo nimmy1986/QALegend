@@ -6,10 +6,10 @@ import org.testng.annotations.Test;
 import Page_Object.Homepage;
 import Page_Object.LoginPage;
 import Page_Object.userManagementpage;
-import QAUtilities.ExcelUtility;
 import QA_Automation_Core.QABase;
 import qaconstants.Constants;
 import qaconstants.Messages;
+import utilities.ExcelUtility;
 
 public class userManagementpagetest extends QABase
 {

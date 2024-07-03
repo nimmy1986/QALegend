@@ -1,4 +1,4 @@
-package QAUtilities;
+package utilities;
 
 import com.github.javafaker.Faker;
 import com.github.javafaker.Name;

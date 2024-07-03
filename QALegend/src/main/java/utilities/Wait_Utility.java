@@ -1,4 +1,4 @@
-package QAUtilities;
+package utilities;
 
 import java.time.Duration;
 import java.util.NoSuchElementException;

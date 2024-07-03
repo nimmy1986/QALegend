@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import QAUtilities.Wait_Utility;
+import utilities.Wait_Utility;
 
 public class AddUserPage 
 {

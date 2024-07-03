@@ -1,4 +1,4 @@
-package QAUtilities;
+package utilities;
 import org.openqa.selenium.WebElement;
 
 public class WebElement_Utility 

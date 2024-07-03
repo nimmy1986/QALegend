@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 
 import qaconstants.Constants;
 import qaconstants.Messages;
+import utilities.ExcelUtility;
 import Page_Object.ResetPasswordPage;
-import QAUtilities.ExcelUtility;
 import QA_Automation_Core.QABase;
 
 public class ResetPasswordPageTest extends QABase

@@ -7,9 +7,9 @@ import org.testng.annotations.Test;
 
 import qaconstants.Constants;
 import qaconstants.Messages;
+import utilities.ExcelUtility;
 import Page_Object.Homepage;
 import Page_Object.LoginPage;
-import QAUtilities.ExcelUtility;
 
 
 public class LoginPageTest extends QABase

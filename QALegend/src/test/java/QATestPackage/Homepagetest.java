@@ -1,5 +1,7 @@
 package QATestPackage;
 
+import java.io.FileNotFoundException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,8 +15,10 @@ import QA_Automation_Core.QABase;
 public class Homepagetest extends QABase
 {
 	@Test
-	public void homepagetitle() throws Exception
+	public void homepagetitle()
 	{
+		try
+		{
 		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		LoginPage login=new LoginPage(driver);
@@ -25,11 +29,18 @@ public class Homepagetest extends QABase
 		String expectedhomepagetitle=ExcelUtility.readStringData(2, 0, Constants.HOMEPAGE);
 		
 		Assert.assertEquals(actualhomepagetitleString, expectedhomepagetitle, Messages.HOME_TITLEMISMATCH);
+		}
+		catch(Exception e)
+		{
+		throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
+		}
 	}
 	
 	@Test
 	public void verifyuserlogindate() throws Exception
 	{
+		try
+		{
 		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 
@@ -42,5 +53,11 @@ public class Homepagetest extends QABase
 		String actual_logindate=home.getLoginDate();
 		String expected_logindate=home.getCurrentDate();
 		Assert.assertEquals(actual_logindate, expected_logindate,"Login date mismatch");
+		}
+		catch(Exception e)
+		{
+			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
+		}
+		
 	}
 }

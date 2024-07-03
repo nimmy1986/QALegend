@@ -14,8 +14,10 @@ import QA_Automation_Core.QABase;
 public class ResetPasswordPageTest extends QABase
 {
 	@Test(groups = "Sanity")
-	public void verifyerrormessagewithinvalidemailid() throws Exception
+	public void verifyerrormessagewithinvalidemailid()
 	{
+		try
+		{
 		String invalidemailidfromexcel=ExcelUtility.readStringData(0, 0, Constants.RESETPAGE);
 
 		ResetPasswordPage Reset=new ResetPasswordPage(driver);
@@ -26,11 +28,18 @@ public class ResetPasswordPageTest extends QABase
 		String expectederrormessage=ExcelUtility.readStringData(1, 0, Constants.RESETPAGE);
 		
 		Assert.assertEquals(errormessagetext, expectederrormessage, Messages.MESSAGE_MISMATCH);
+		}
+		catch(Exception e)
+		{
+			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
+		}
 	}
 	
 	@Test(groups = "Smoke")
-	public void verifytextmessagewithvalidemailid() throws Exception
+	public void verifytextmessagewithvalidemailid()
 	{
+		try
+		{
 		String validemailidfromexcel=ExcelUtility.readStringData(2, 0, Constants.RESETPAGE);
 
 		ResetPasswordPage Reset=new ResetPasswordPage(driver);
@@ -41,7 +50,11 @@ public class ResetPasswordPageTest extends QABase
 		String expectedsuccessmessage=ExcelUtility.readStringData(3, 0, Constants.RESETPAGE);
 		
 		Assert.assertEquals(actualsuccessmessage, expectedsuccessmessage,Messages.MESSAGE_MISMATCH);
-		
+		}
+		catch(Exception e)
+		{
+			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
+		}
 	}
 	
 }

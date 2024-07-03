@@ -20,9 +20,10 @@ import QA_Automation_Core.QABase;
 public class MyProfilePageTest extends QABase
 {
 	@Test
-	public void verifyProfileEdit() throws Exception
+	public void verifyProfileEdit()
 	{
-		
+		try
+		{
 		LoginPage login=new LoginPage(driver);
 		String un=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String pwd=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
@@ -46,5 +47,10 @@ public class MyProfilePageTest extends QABase
 		String expectedtext=firstnametext+" "+editlastname;
 		String actualtext=homepage.getuserprofiletext();
 		Assert.assertEquals(actualtext, expectedtext, Messages.HOME_PROFILEMISMATCH);
+		}
+		catch(Exception e)
+		{
+			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
+		}
 	}
 }

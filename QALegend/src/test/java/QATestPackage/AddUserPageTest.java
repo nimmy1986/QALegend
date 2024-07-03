@@ -72,7 +72,7 @@ public class AddUserPageTest extends QABase
 	}
 	
 	@Test
-	public void verifynewlyaddeduser() throws Exception
+	public void verifynewlyaddeduser()
 	{
 		try
 		{

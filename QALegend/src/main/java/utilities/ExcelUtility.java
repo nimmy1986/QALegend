@@ -1,6 +1,7 @@
 package utilities;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -9,6 +10,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import qaconstants.Constants;
 import qaconstants.Messages;
 
 public class ExcelUtility 
@@ -21,8 +23,8 @@ public class ExcelUtility
 		{
 			try
 			{
-				
-			file = new FileInputStream("C:\\Users\\anups\\git\\QALegend\\QALegend\\src\\main\\resources\\TestData.xlsx");
+			String path=Constants.HOME_DIRECTORY+Constants.TEXTDATA_EXCELPATH;
+			file = new FileInputStream(path);
 			book =new XSSFWorkbook(file);
 			sheet =book.getSheet(shname);
 			Row r = sheet.getRow(row);
@@ -39,7 +41,8 @@ public class ExcelUtility
 		{
 			try
 			{
-			file = new FileInputStream("C:\\Users\\anups\\git\\QALegend\\QALegend\\src\\main\\resources\\TestData.xlsx");
+			String path=Constants.HOME_DIRECTORY+Constants.TEXTDATA_EXCELPATH;
+			file = new FileInputStream(path);
 			book =new XSSFWorkbook(file);
 			sheet =book.getSheet(shname);
 			Row r = sheet.getRow(row);

@@ -69,10 +69,12 @@ public class QABase
 	}
 	
 	@BeforeMethod (alwaysRun = true)
-	@Parameters("Browser")
+	@Parameters("browser")
 	public void setup()
 	{
 		initialisebrowserlaunch("Chrome");
+		Wait_Utility.waitUsingImplicitWait(driver);
+
 	}
 	
 	@AfterMethod(alwaysRun = true)

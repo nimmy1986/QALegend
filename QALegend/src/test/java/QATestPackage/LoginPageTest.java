@@ -36,7 +36,7 @@ public class LoginPageTest extends QABase
 				
 	}
 	
-	@Test(dataProvider="Invalidusernameorpassword", dataProviderClass=qadataproviders.class)
+	@Test(groups = "Regression", dataProvider="Invalidusernameorpassword", dataProviderClass=qadataproviders.class)
 	public void verifyerrormessagewhileuserloginwithinvalidcredentials(String usrnm,String pwd) throws Exception
 	{
 		LoginPage login=new LoginPage(driver);

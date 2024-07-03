@@ -13,7 +13,7 @@ import QA_Automation_Core.QABase;
 
 public class ResetPasswordPageTest extends QABase
 {
-	@Test
+	@Test(groups = "Sanity")
 	public void verifyerrormessagewithinvalidemailid() throws Exception
 	{
 		String invalidemailidfromexcel=ExcelUtility.readStringData(0, 0, Constants.RESETPAGE);
@@ -28,7 +28,7 @@ public class ResetPasswordPageTest extends QABase
 		Assert.assertEquals(errormessagetext, expectederrormessage, Messages.MESSAGE_MISMATCH);
 	}
 	
-	@Test
+	@Test(groups = "Smoke")
 	public void verifytextmessagewithvalidemailid() throws Exception
 	{
 		String validemailidfromexcel=ExcelUtility.readStringData(2, 0, Constants.RESETPAGE);

@@ -1,7 +1,5 @@
 package QATestPackage;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,8 +22,6 @@ public class UsersPageTest extends QABase
 	@Test
 	public void verifySearchUser() throws Exception
 	{
-		try
-		{
 		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		String searched_user=ExcelUtility.readStringData(0, 0, Constants.USERSPAGE);
@@ -45,11 +41,5 @@ public class UsersPageTest extends QABase
 		userspage.waitforusers();
 		String found_user= userspage.FoundUser();
 		Assert.assertEquals(searched_user, found_user, Messages.INVALID_USER);
-	}
-	catch(Exception e)
-	{
-		throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
-	}
-		
-	}
+		}
 }

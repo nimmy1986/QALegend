@@ -35,16 +35,13 @@ public class QABase
 		{
 			fs = new FileInputStream(Constants.CONFIG_FILE);
 			prop.load(fs);
-			//System.out.println("Config file path: " +Constants.CONFIG_FILE);
 		} 
 		catch (FileNotFoundException e) 
 		{
-            System.out.println("Config file not found at: " + Constants.CONFIG_FILE);
 			e.printStackTrace();
 		} 
 		catch (IOException e) 
 		{
-            System.out.println("Error reading config file at: " + Constants.CONFIG_FILE);
 			e.printStackTrace();
 		}
 		

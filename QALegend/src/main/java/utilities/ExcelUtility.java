@@ -19,7 +19,7 @@ public class ExcelUtility
 		static XSSFWorkbook book;
 		static XSSFSheet sheet;
 		
-		public static String readStringData(int row ,int column,String shname) throws Exception
+		public static String readStringData(int row ,int column,String shname)
 		{
 			try
 			{
@@ -37,7 +37,7 @@ public class ExcelUtility
 				}
 		}
 		
-		public static String readIntegerData(int row , int column, String shname) throws Exception
+		public static String readIntegerData(int row , int column, String shname)
 		{
 			try
 			{

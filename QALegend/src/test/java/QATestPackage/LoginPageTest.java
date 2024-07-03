@@ -17,8 +17,6 @@ public class LoginPageTest extends QABase
 	@Test
 	public void verifyuserloginwithvalidcredentials()
 	{
-		try
-		{		
 		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		
@@ -33,19 +31,12 @@ public class LoginPageTest extends QABase
 		
 		String expectedwelcometext=ExcelUtility.readStringData(2, 0, Constants.LOGINPAGE);
 		System.out.println(expectedwelcometext);
-		Assert.assertEquals(welcometext, expectedwelcometext, Messages.LOGIN_FAILED);
-		}
-		catch(Exception e)
-		{
-			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
-		}				
+		Assert.assertEquals(welcometext, expectedwelcometext, Messages.LOGIN_FAILED);	
 	}
 	
 	@Test(groups = "Regression", dataProvider="Invalidusernameorpassword", dataProviderClass=qadataproviders.class)
 	public void verifyerrormessagewhileuserloginwithinvalidcredentials(String usrnm,String pwd)
 	{
-		try
-		{
 		LoginPage login=new LoginPage(driver);
 		login.enterusername(usrnm);
 		login.enterpassword(pwd);
@@ -54,10 +45,5 @@ public class LoginPageTest extends QABase
 		String expectederrormessage=ExcelUtility.readStringData(3, 0, Constants.LOGINPAGE);
 		
 		Assert.assertEquals(actualerrormessage, expectederrormessage, Messages.MESSAGE_MISMATCH);
-		}
-		catch(Exception e)
-		{
-			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
-		}
 	}
 }

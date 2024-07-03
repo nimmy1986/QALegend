@@ -19,8 +19,6 @@ public class AddUserPageTest extends QABase
 	@Test
 	public void verifyadduser()
 	{
-		try
-		{
 		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		
@@ -62,20 +60,13 @@ public class AddUserPageTest extends QABase
 		userspage.enter_email_insearchfield(email);
 		userspage.waitforusers();
 		String found_email= userspage.FoundUser();
-		Assert.assertEquals(email, found_email,Messages.USER_NOT_FOUND);		
-		}
-		catch(Exception e)
-		{
-			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
-		}
-	
+		Assert.assertEquals(email, found_email,Messages.USER_NOT_FOUND);
 	}
 	
 	@Test
 	public void verifynewlyaddeduser()
 	{
-		try
-		{
+		
 		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		
@@ -124,10 +115,6 @@ public class AddUserPageTest extends QABase
 		String expectedusername=firstname+" "+lastname;
 		System.out.println(expectedusername);
 		Assert.assertEquals(actualusername, expectedusername, Messages.LOGIN_FAILED);
-		}
-		catch(Exception e)
-		{
-			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
-		}
+		
 	}
 }

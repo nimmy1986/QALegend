@@ -11,8 +11,8 @@
   <test  name="All TestCases">
 	<parameter name="browser" value="Chrome"/>
     <classes>
-       <class name="test.LoginPageTest"/>
-      	<class name="test.ResetPasswordPageTest"/>
+       <class name="QATestPackage.LoginPageTest"/>
+      	<class name="QATestPackage.ResetPasswordPageTest"/>
        <!--class name="test.RegistrationPageTest"/-->
     </classes>
   </test> <!-- Functuinal Test -->

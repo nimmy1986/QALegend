@@ -9,7 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Wait_Utility {
+public class Wait_Utility 
+{
 	
 	public static final long IMPLICIT_WAIT=10;
 	public static final long EXPLICIT_WAIT=30;

@@ -29,7 +29,6 @@ public class QABase
 	
 	public void initialisebrowserlaunch(String browser)
 	{
-		
 		prop = new Properties();
 		try 
 		{

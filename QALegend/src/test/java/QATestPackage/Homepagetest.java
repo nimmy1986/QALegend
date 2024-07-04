@@ -1,7 +1,5 @@
 package QATestPackage;
 
-import java.io.FileNotFoundException;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

@@ -16,8 +16,6 @@ public class ResetPasswordPageTest extends QABase
 	@Test(groups = "Sanity")
 	public void verifyerrormessagewithinvalidemailid()
 	{
-		try
-		{
 		String invalidemailidfromexcel=ExcelUtility.readStringData(0, 0, Constants.RESETPAGE);
 
 		ResetPasswordPage Reset=new ResetPasswordPage(driver);
@@ -27,12 +25,7 @@ public class ResetPasswordPageTest extends QABase
 		String errormessagetext=Reset.geterrormessage();
 		String expectederrormessage=ExcelUtility.readStringData(1, 0, Constants.RESETPAGE);
 		
-		Assert.assertEquals(errormessagetext, expectederrormessage, Messages.MESSAGE_MISMATCH);
-		}
-		catch(Exception e)
-		{
-			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
-		}
+		Assert.assertEquals(errormessagetext, expectederrormessage, Messages.RESET_FAILURE);
 	}
 	
 	@Test(groups = "Smoke")

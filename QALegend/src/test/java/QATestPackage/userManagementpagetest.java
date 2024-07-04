@@ -16,8 +16,7 @@ public class userManagementpagetest extends QABase
 	@Test
 	public void verifyRolesOptionIsEnabled()
 	{
-		try
-		{
+	
 		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
 		
@@ -31,12 +30,9 @@ public class userManagementpagetest extends QABase
 		userManagementpage usermanage=home.clickUserManagement();
 		boolean rolesisenabledornot=usermanage.role_status();
 		Assert.assertTrue(rolesisenabledornot,Messages.OPTION_NOT_ENABLED);
-		}
-		catch(Exception e)
-		{
-			throw new RuntimeException(Messages.EXCEL_SHEEETNOTFOUND);
-		}
+		
 	}
+	
 	@Test
 	public void verifyUsersOptionIsEnabled()
 	{
@@ -52,6 +48,7 @@ public class userManagementpagetest extends QABase
 		
 		userManagementpage usermanage=home.clickUserManagement();
 		boolean userisenabledornot=usermanage.ifElementIsEnabled();
+		
 		Assert.assertTrue(userisenabledornot,Messages.OPTION_NOT_ENABLED);
 	}
 }

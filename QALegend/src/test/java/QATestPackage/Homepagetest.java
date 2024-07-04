@@ -36,8 +36,7 @@ public class Homepagetest extends QABase
 		LoginPage login=new LoginPage(driver);
 		login.enterusername(username);
 		login.enterpassword(password);
-		Homepage home=new Homepage(driver);
-		home=login.clickonloginbutton();
+		Homepage home=login.clickonloginbutton();
 		home.clickonendtour();
 		String actual_logindate=home.getLoginDate();
 		String expected_logindate=home.getCurrentDate();

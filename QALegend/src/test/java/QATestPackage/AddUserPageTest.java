@@ -25,18 +25,14 @@ public class AddUserPageTest extends QABase
 		LoginPage login=new LoginPage(driver);
 		login.enterusername(username);
 		login.enterpassword(password);
-		login.clickonloginbutton();
-		
-		Homepage home=new Homepage(driver);
+		Homepage home=login.clickonloginbutton();
 		home.clickonendtour();
 		
 		userManagementpage usermanagement=home.clickUserManagement();
         usermanagement.waitforusers();
         
 		UsersPage userspage= usermanagement.clickon_users();
-		userspage.clickonAdd();
-		
-		AddUserPage adduser=new AddUserPage(driver);
+		AddUserPage adduser=userspage.clickonAdd();
 		
 		String firstname=RandomDataUtility.getusername();
 		String lastname=RandomDataUtility.getlastname();
@@ -73,9 +69,8 @@ public class AddUserPageTest extends QABase
 		LoginPage login=new LoginPage(driver);
 		login.enterusername(username);
 		login.enterpassword(password);
-		login.clickonloginbutton();
 		
-		Homepage home=new Homepage(driver);
+		Homepage home=login.clickonloginbutton();
 		home.clickonendtour();
 		
 		userManagementpage usermanagement=home.clickUserManagement();
@@ -84,7 +79,7 @@ public class AddUserPageTest extends QABase
 		UsersPage userspage= usermanagement.clickon_users();
 		userspage.clickonAdd();
 		
-		AddUserPage adduser=new AddUserPage(driver);
+		AddUserPage adduser=userspage.clickonAdd();
 		
 		String firstname=RandomDataUtility.getusername();
 		String lastname=RandomDataUtility.getlastname();
@@ -114,6 +109,7 @@ public class AddUserPageTest extends QABase
 		String actualusername=home.getuserprofiletext();
 		String expectedusername=firstname+" "+lastname;
 		System.out.println(expectedusername);
+		
 		Assert.assertEquals(actualusername, expectedusername, Messages.LOGIN_FAILED);
 		
 	}

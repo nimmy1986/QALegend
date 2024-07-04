@@ -1,9 +1,5 @@
 package QATestPackage;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,7 +15,7 @@ import QA_Automation_Core.QABase;
 public class UsersPageTest extends QABase
 {
 	@Test
-	public void verifySearchUser() throws Exception
+	public void verifySearchUser()
 	{
 		String username=ExcelUtility.readStringData(0, 0, Constants.LOGINPAGE);
 		String password=ExcelUtility.readIntegerData(1, 0, Constants.LOGINPAGE);
@@ -39,6 +35,7 @@ public class UsersPageTest extends QABase
 		userspage.enter_email_insearchfield(searched_user);
 		userspage.waitforusers();
 		String found_user= userspage.FoundUser();
+		
 		Assert.assertEquals(searched_user, found_user, Messages.INVALID_USER);
-		}
+	}
 }

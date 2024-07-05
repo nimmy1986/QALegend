@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 public class Page_Utility 
 {
 	
-	static int index=3;
+	//static int index=3;
 	public static void selectByValue(WebElement element,String value)
 	{
 		Select select = new Select(element);

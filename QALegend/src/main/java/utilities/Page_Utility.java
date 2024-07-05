@@ -22,7 +22,7 @@ public class Page_Utility
 		select.selectByVisibleText(visibleText);
 	}
 	
-	public static void selectByRoleIndex(WebElement element)
+	public static void selectByRoleIndex(WebElement element,int index)
 	{
 		Select select= new Select(element);
 		select.selectByIndex(index);

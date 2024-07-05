@@ -29,11 +29,10 @@ public class UsersPageTest extends QABase
         home.clickonendtour();
         
         userManagementpage usermanagement=home.clickUserManagement();
-        usermanagement.waitforusers();
+        //usermanagement.waitforusers();
         
 		UsersPage userspage= usermanagement.clickon_users();
 		userspage.enter_email_insearchfield(searched_user);
-		userspage.waitforusers();
 		String found_user= userspage.FoundUser();
 		
 		Assert.assertEquals(searched_user, found_user, Messages.INVALID_USER);

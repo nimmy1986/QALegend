@@ -29,7 +29,6 @@ public class AddUserPageTest extends QABase
 		home.clickonendtour();
 		
 		userManagementpage usermanagement=home.clickUserManagement();
-        usermanagement.waitforusers();
         
 		UsersPage userspage= usermanagement.clickon_users();
 		AddUserPage adduser=userspage.clickonAdd();
@@ -46,7 +45,8 @@ public class AddUserPageTest extends QABase
 		adduser.enterfirstname(firstname);
 		adduser.enterlastname(lastname);
 		adduser.enteremail(email);
-		adduser.selectfromdropdownlist();
+		int index=RandomDataUtility.getindex();
+		adduser.selectfromdropdownlist(index);
 		adduser.enterusername(username1);
 		adduser.enterpassword(password1);
 		adduser.confirmpassword(password1);
@@ -54,7 +54,6 @@ public class AddUserPageTest extends QABase
 		adduser.clickon_savebutton();
 		
 		userspage.enter_email_insearchfield(email);
-		userspage.waitforusers();
 		String found_email= userspage.FoundUser();
 		Assert.assertEquals(email, found_email,Messages.USER_NOT_FOUND);
 	}
@@ -74,7 +73,7 @@ public class AddUserPageTest extends QABase
 		home.clickonendtour();
 		
 		userManagementpage usermanagement=home.clickUserManagement();
-        usermanagement.waitforusers();
+        //usermanagement.waitforusers();
         
 		UsersPage userspage= usermanagement.clickon_users();
 		userspage.clickonAdd();
@@ -93,7 +92,8 @@ public class AddUserPageTest extends QABase
 		adduser.enterfirstname(firstname);
 		adduser.enterlastname(lastname);
 		adduser.enteremail(email);
-		adduser.selectfromdropdownlist();
+		int index=RandomDataUtility.getindex();
+		adduser.selectfromdropdownlist(index);
 		adduser.enterusername(username1);
 		adduser.enterpassword(password1);
 		adduser.confirmpassword(password1);

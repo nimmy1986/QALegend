@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.DateUtility;
+import utilities.Wait_Utility;
 
 public class Homepage
 {
@@ -72,6 +73,7 @@ public class Homepage
 	public userManagementpage clickUserManagement() 
 	{
 		user_management.click();
+		Wait_Utility.waitForElementToBeVisible(driver, user_management);
 		return new userManagementpage(driver);
 	}
 	

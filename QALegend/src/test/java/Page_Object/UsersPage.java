@@ -32,14 +32,13 @@ public class UsersPage
 
 	public void enter_email_insearchfield(String searched_user) 
 	{
-		searchfield.sendKeys(searched_user);	}
+		searchfield.sendKeys(searched_user);	
+	}
+	
 	public String FoundUser() 
 	{
-		return found_user.getText();
-	}
-	public void waitforusers() 
-	{
 		Wait_Utility.waitForElementToBeVisible(driver, found_user);
+		return found_user.getText();
 	}
 	public AddUserPage clickonAdd() 
 	{

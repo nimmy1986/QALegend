@@ -32,4 +32,10 @@ public class RandomDataUtility
 		String salecommission = qafaker.number().digit();
 		return salecommission;
 	}
+	public static int getindex() 
+	{
+		qafaker = new Faker();
+		int index=qafaker.number().randomDigit();
+		return index;
+	}
 }

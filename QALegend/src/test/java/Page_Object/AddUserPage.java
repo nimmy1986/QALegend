@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.Page_Utility;
 import utilities.Wait_Utility;
 
 public class AddUserPage 
@@ -53,10 +54,11 @@ public class AddUserPage
 	
 	
 	
-	public void selectfromdropdownlist()
+	public void selectfromdropdownlist(int index)
 	{
-		Select selectobj=new Select(roledropdownlist);
-		selectobj.selectByIndex(1);
+		Page_Utility.selectByRoleIndex(roledropdownlist, index);
+		//Select selectobj=new Select(roledropdownlist);
+		//selectobj.selectByIndex(1);
 	}
 	public void enterprefix(String prefix)
 	{

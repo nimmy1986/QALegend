@@ -38,6 +38,7 @@ public class userManagementpage
 
 	public UsersPage clickon_users()
 	{
+		Wait_Utility.waitForElementToBeVisible(driver, users);
 		users.click();
 		return new UsersPage(driver);
 	}
@@ -55,10 +56,4 @@ public class userManagementpage
 	{
 		return WebElement_Utility.isElementEnabled(roles);	
 	}
-
-	public void waitforusers() 
-	{
-		Wait_Utility.waitForElementToBeVisible(driver, users);
-	}
-	
 }
